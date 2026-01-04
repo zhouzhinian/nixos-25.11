@@ -26,6 +26,7 @@
     fcitx5-gtk
     qt6Packages.fcitx5-configtool  # fcitx5-configtool
     fcitx5-nord 
+    fcitx5-rime
    ];
    fcitx5.waylandFrontend = true;
   };

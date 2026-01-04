@@ -8,14 +8,15 @@
     };
       nix-wpsoffice-cn = {
 	url = "github:Beriholic/nix-wpsoffice-cn";
-        inputs.nixpkgs.follows = "nixpkgs"; 
+       inputs.nixpkgs.follows = "nixpkgs"; 
 	};
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
 
-  };
+};
 
   outputs = inputs@{ self, nixpkgs, ... }: 
   let

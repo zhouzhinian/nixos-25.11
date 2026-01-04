@@ -33,7 +33,6 @@
 nix.settings = {
   substituters = [
     "https://mirrors.ustc.edu.cn/nix-channels/store"     # 中科大（可优先）
-    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"  # 清华
     "https://cache.nixos.org/"
   ];
   trusted-public-keys = [
@@ -65,17 +64,30 @@ nix.settings = {
   # 桌面环境（根据下载的 ISO 启用一个）
   
   # KDE Plasma
-  # services.desktopManager.plasma6.enable = true;
+   services.desktopManager.plasma6.enable = true;
 
+   services.displayManager.sddm.enable = true;
+   services.displayManager.sddm.wayland.enable = true;
   # GNOME（GNOME ISO 用）
-   services.displayManager.gdm.enable = true;
-   services.desktopManager.gnome.enable = true;
+  # services.displayManager.gdm.enable = true;
+  # services.desktopManager.gnome.enable = true;
 
   # SSH 服务
   services.openssh.enable = true;
   nixpkgs.config.allowUnfree = true;
   # 开启flake
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  programs.firefox.enable = true;
+
+  environment.variables = {
+	 GTK_IM_MODULE = "fcitx";
+   SDL_IM_MODULE = "fcitx";	
+   QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+    NIXOS_OZONE_WL = "1";
+
+};
 
   # 系统版本（当前最新稳定版 25.11）
   system.stateVersion = "25.11";
