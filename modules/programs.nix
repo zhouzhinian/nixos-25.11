@@ -1,7 +1,6 @@
 { inputs, config, lib, pkgs, ... }: {
    environment.systemPackages = with pkgs; [
    helix
-   zed-editor
    vlc
    papirus-icon-theme
    mint-cursor-themes
