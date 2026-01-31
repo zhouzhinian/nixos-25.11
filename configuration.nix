@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, ... }:
 
 {
@@ -57,21 +53,11 @@ nix.settings = {
   };
 
   # 基本软件包
- #  environment.systemPackages = with pkgs; [
- #    vim git wget curl
- #  ];
-
-  # 桌面环境（根据下载的 ISO 启用一个）
-  
-  # KDE Plasma
-   services.desktopManager.plasma6.enable = true;
-
-   services.displayManager.sddm.enable = true;
-   services.displayManager.sddm.wayland.enable = true;
-  # GNOME（GNOME ISO 用）
-  # services.displayManager.gdm.enable = true;
-  # services.desktopManager.gnome.enable = true;
-
+  environment.systemPackages = with pkgs; [
+     git wget ripgrep jq yq-go eza fzf which file gnused zstd gnupg aria2 
+     tree zip xz unzip p7zip yazi
+     rustup fastfetch htop 
+   ];
   # SSH 服务
   services.openssh.enable = true;
   nixpkgs.config.allowUnfree = true;
@@ -81,13 +67,17 @@ nix.settings = {
   programs.firefox.enable = true;
 
   environment.variables = {
-	 GTK_IM_MODULE = "fcitx";
-   SDL_IM_MODULE = "fcitx";	
-   QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    NIXOS_OZONE_WL = "1";
+	GTK_IM_MODULE = "fcitx";
+  	SDL_IM_MODULE = "fcitx";	
+   	QT_IM_MODULE = "fcitx";
+    	XMODIFIERS = "@im=fcitx";
+    	NIXOS_OZONE_WL = "1";
 
 };
+    ## Flatpak
+ services.flatpak.enable = true;  
+ xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+ xdg.portal.config.common.default = "gtk";
 
   # 系统版本（当前最新稳定版 25.11）
   system.stateVersion = "25.11";

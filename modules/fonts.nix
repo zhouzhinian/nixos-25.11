@@ -34,6 +34,7 @@
   # 中文字体优化
   fonts = {
   packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
     nerd-fonts.adwaita-mono
     cascadia-code
     noto-fonts 

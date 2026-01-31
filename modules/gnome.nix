@@ -34,22 +34,11 @@ environment.systemPackages = with pkgs; [
     gnome-calculator
     gnome-calendar
     gnome-characters
-    # gnome-clocks
-    #    gnome-console
-    # gnome-contacts
     gnome-font-viewer
-    # gnome-logs
-    # gnome-maps
-    #gnome-music
     gnome-system-monitor
-    #gnome-weather
     loupe
-    #gnome-connections
-    #simple-scan
-    #totem
     gnome-software
-    ghostty
-
+    ptyxis
 	gnomeExtensions.clipboard-indicator
 	gnomeExtensions.logo-menu
 	gnomeExtensions.kimpanel
